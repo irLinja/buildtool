@@ -33,7 +33,10 @@ print('Building for %s ENV...' % ENV)
 def get_env_value(environment, key):
     value = os.getenv( ENV + '_' + key)
     if value is None:
-        value = os.getenv(key, 'undefined_variable')
+        value = os.getenv(key)
+    if value is None:
+        print('%s variable NOT Found' % key, file=sys.stderr)
+        exit(2)
     return value
 
 files = data['templates']
