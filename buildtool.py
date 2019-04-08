@@ -22,13 +22,13 @@ try:
     with open(sys.argv[2]) as json_file:
         data = json.load(json_file)
 except IndexError:
-    print(f'Build Environment is {ENV} but Build file is not specified', file=sys.stderr)
+    print('Build Environment is %s but Build file is not specified' % ENV, file=sys.stderr)
     exit(1)
 except ValueError:
     print('Not a valid Json', file=sys.stderr)
     exit(1)
 
-print(f'Building for {ENV} ENV...')
+print('Building for %s ENV...' % ENV)
 
 def get_env_value(environment, key):
     value = os.getenv( ENV + '_' + key)
@@ -53,6 +53,6 @@ for sample_file in files.keys():
 
     with open(files.get(sample_file), 'w') as output:
         output.writelines(output_lines)
-        print(f'{files.get(sample_file)} created/updated successfully')
+        print('%s created/updated successfully' % files.get(sample_file))
 
 exit(0)
