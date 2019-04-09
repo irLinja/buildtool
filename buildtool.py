@@ -27,6 +27,9 @@ except IndexError:
 except ValueError:
     print('Not a valid Json', file=sys.stderr)
     exit(1)
+except FileNotFoundError:
+    print('Build file not found', file=sys.stderr)
+    exit(1)
 
 print('Building for %s ENV...' % ENV)
 
