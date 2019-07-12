@@ -55,6 +55,7 @@ for sample_file in files.keys():
                 for key in keys:
                     if key[1:-1] in variables:
                         newline = re.sub(key, get_env_value(ENV, key[1:-1]), line)
+                        line = newline
             output_lines.append(newline)
 
     with open(files.get(sample_file), 'w') as output:
