@@ -65,6 +65,9 @@ for sample_file in FILES.keys():
                         newline = re.sub(key, get_env_value(ENV, key[1:-1]),\
                             line)
                         line = newline
+                    else:
+                        newline = " "
+                        line = " "
             output_lines.append(newline)
 
     with open(FILES.get(sample_file), 'w') as output:
